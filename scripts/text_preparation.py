@@ -11,13 +11,14 @@ ORIGIN_DIRECTORY = 'D:\\Study\\DLP_classification\\files\\data\\origin\\'
 CLEAN_DIRECTORY = 'D:\\Study\\DLP_classification\\files\\data\\clean\\'
 EMBEDDINGS_DIRECTORY = 'D:\\Study\\DLP_classification\\files\\data\\clean\\embeddings\\'
 
-stopwords = ['а', 'бы', 'без', 'был', 'быть', 'в', 'вас', 'вы', 'да', 'для', 'до', 'его', 'если', 'есть', 'еще', 'ещё',
-             'ж', 'же', 'за', 'и', 'из', 'или', 'им', 'их', 'к', 'как', 'кем', 'когда', 'кого', 'которая', 'которые',
-             'который', 'кто', 'ли', 'лишь', 'мы', 'на', 'над', 'нас', 'не', 'нет', 'несколько', 'ни', 'но', 'о', 'об',
-             'он', 'они', 'от', 'при', 'по', 'под', 'пока', 'про', 'рф', 'с', 'свой', 'себя', 'со', 'так', 'те', 'тем',
-             'тех', 'то', 'того', 'тот', 'ты', 'у', 'уже', 'чего', 'чем', 'через', 'что', 'чтобы', 'эта', 'эти', 'это',
-             'этого', 'этой', 'я', 'com', 'be', 'html', 'http', 'https', 'm', 'my', 'of', 'org', 'pic', 'ru', 's',
-             'stat', 'statu', 'status', 'tatus', 'twitter', 'youtu', 'youtube', 'ua', 'www']
+my_stopwords = ['а', 'бы', 'без', 'был', 'быть', 'в', 'вас', 'вы', 'да', 'для', 'до', 'его', 'если', 'есть', 'еще',
+                'ещё', 'ж', 'же', 'за', 'и', 'из', 'или', 'им', 'их', 'к', 'как', 'кем', 'когда', 'кого', 'которая',
+                'которые', 'который', 'кто', 'ли', 'лишь', 'мы', 'на', 'над', 'нас', 'не', 'нет', 'несколько', 'ни',
+                'но', 'о', 'об', 'он', 'они', 'от', 'при', 'по', 'под', 'пока', 'про', 'рф', 'с', 'свой', 'себя', 'со',
+                'так', 'те', 'тем', 'тех', 'то', 'того', 'тот', 'ты', 'у', 'уже', 'чего', 'чем', 'через', 'что',
+                'чтобы', 'эта', 'эти','это', 'этого', 'этой', 'я', 'com', 'be', 'html', 'http', 'https', 'm', 'my',
+                'of', 'org', 'pic', 'ru', 's', 'stat', 'statu', 'status', 'tatus', 'twitter', 'youtu', 'youtube', 'ua',
+                'www']
 
 
 def import_text_from_documents():
@@ -50,7 +51,7 @@ def text_cleaning(embeddings=None):
             # filter out stop words
             if not embeddings:
                 stop_words = set(stopwords.words('russian'))
-                tokens = [w for w in tokens if (w not in stop_words and w not in stopwords)]
+                tokens = [w for w in tokens if (w not in stop_words and w not in my_stopwords)]
 
             # convert to lowercase
             tokens = [w.lower() for w in tokens]
